@@ -6,11 +6,12 @@ import com.juaracoding.cucumber.utils.TestScenarios;
 import com.juaracoding.cucumber.utils.Utils;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
-import io.cucumber.java.Before;
+import com.relevantcodes.extentreports.LogStatus;
+import io.cucumber.java.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+
+import java.io.IOException;
 
 public class Hooks {
     public static WebDriver driver;
@@ -19,12 +20,13 @@ public class Hooks {
 
     @Before
     public void setUp() {
-        DriverSingleton.getInstance(Constants.CHROME);
+        DriverSingleton.getInstance(Constants.CHROMEHEADLESS);
         driver = DriverSingleton.getDriver();
         TestScenarios[] tests = TestScenarios.values();
         extentTest = reports.startTest(tests[Utils.testCount].getTestName());
         Utils.testCount++;
     }
+
 
     @After
     public void closeObject() {
