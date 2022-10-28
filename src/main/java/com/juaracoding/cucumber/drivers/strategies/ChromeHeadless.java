@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class ChromeHeadless {
 
     public WebDriver setStrategy() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("useAutomationExtension", false);
         options.addArguments("--no-sandbox");
